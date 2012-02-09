@@ -93,9 +93,12 @@
 		return $timedWindResults;
 	}
 
-	// o        Must be less than or equal to 5SM 
-	// TODO
-	// method should return start time, end time, lowest visibility
+
+	/*
+		A snow event is if a row contains a SNB or SNE
+
+		Metod returns array of snow events
+	*/
 	function determineSnowResults ($allElements) {
 
 		//$allElements = array('2012-01-17 17:33 METAR KMKE 172333Z 31012G20KT 5SM -SN BKN026 BKN033 OVC044 M05/M09 A3002 RMK AO2 SNB27 P0000 =');
@@ -131,10 +134,6 @@
 		fclose($fh);
 	}
 
-	// $string = "2012-01-19 11:52 METAR KMKE 191752Z 31010KT 10SM FEW032 SCT200 M16/M24 A3003 RMK AO2 SLP185 4/003
- //                  933008 T11561239 11106 21161 51020";
- 	// $string = "2012-01-17 03:25 METAR KMKE 170925Z 03013KT 7SM OVC015 03/00 A2965 RMK AO2";
-   // $allElements = array(preg_replace("/[ \t\n]+/", " ", $string));
     $lineBreak = "<br />";
 	echo ("starting pull process.... " . $lineBreak);
 	$allElements = getDataElements ();
